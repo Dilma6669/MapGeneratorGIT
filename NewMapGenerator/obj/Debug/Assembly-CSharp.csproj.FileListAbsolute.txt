@@ -1,0 +1,2 @@
+D:\Made Games\NewMapGenerator\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+D:\Made Games\NewMapGenerator\obj\Debug\Assembly-CSharp.dll

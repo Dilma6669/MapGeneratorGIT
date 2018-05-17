@@ -1,0 +1,181 @@
+fileFormatVersion: 2
+guid: 048f37622ecb6449683415bb4a20868b
+timeCreated: 1515863315
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: GrassBunch
+    100002: GrassBunch.001
+    100004: GrassBunch.002
+    100006: GrassBunch.003
+    100008: GrassBunch.004
+    100010: GrassBunch.005
+    100012: GrassBunch.006
+    100014: GrassBunch.007
+    100016: //RootNode
+    100018: Grassy1
+    100020: Mushroom
+    100022: Mushroom.001
+    100024: Mushroom.002
+    100026: Mushroom.003
+    100028: Stone
+    100030: Stone.001
+    100032: Stone.002
+    100034: Workbench
+    400000: GrassBunch
+    400002: GrassBunch.001
+    400004: GrassBunch.002
+    400006: GrassBunch.003
+    400008: GrassBunch.004
+    400010: GrassBunch.005
+    400012: GrassBunch.006
+    400014: GrassBunch.007
+    400016: //RootNode
+    400018: Grassy1
+    400020: Mushroom
+    400022: Mushroom.001
+    400024: Mushroom.002
+    400026: Mushroom.003
+    400028: Stone
+    400030: Stone.001
+    400032: Stone.002
+    400034: Workbench
+    2100000: Grass1
+    2100002: Grass3
+    2100004: Grass2
+    2100006: MushroomBottom
+    2100008: MushroomTop1
+    2100010: Stone1
+    2100012: No Name
+    2300000: GrassBunch
+    2300002: GrassBunch.001
+    2300004: GrassBunch.002
+    2300006: GrassBunch.003
+    2300008: GrassBunch.004
+    2300010: GrassBunch.005
+    2300012: GrassBunch.006
+    2300014: GrassBunch.007
+    2300016: Grassy1
+    2300018: Mushroom
+    2300020: Mushroom.001
+    2300022: Mushroom.002
+    2300024: Mushroom.003
+    2300026: Stone
+    2300028: Stone.001
+    2300030: Stone.002
+    2300032: Workbench
+    3300000: GrassBunch
+    3300002: GrassBunch.001
+    3300004: GrassBunch.002
+    3300006: GrassBunch.003
+    3300008: GrassBunch.004
+    3300010: GrassBunch.005
+    3300012: GrassBunch.006
+    3300014: GrassBunch.007
+    3300016: Grassy1
+    3300018: Mushroom
+    3300020: Mushroom.001
+    3300022: Mushroom.002
+    3300024: Mushroom.003
+    3300026: Stone
+    3300028: Stone.001
+    3300030: Stone.002
+    3300032: Workbench
+    4300000: Grassy1
+    4300002: GrassBunch.007
+    4300004: GrassBunch.006
+    4300006: Stone.002
+    4300008: Stone.001
+    4300010: GrassBunch.005
+    4300012: Mushroom.003
+    4300014: GrassBunch.004
+    4300016: GrassBunch.003
+    4300018: Mushroom.002
+    4300020: Mushroom.001
+    4300022: GrassBunch.002
+    4300024: GrassBunch.001
+    4300026: Stone
+    4300028: Mushroom
+    4300030: Workbench
+    4300032: GrassBunch
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 0
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 2
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
