@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
+using Data;
 using Managers;
 
-namespace Builders.MapBuilders {
+namespace Builders {
 
-	public class CubeBuilder : MonoBehaviour {
+	public class CubeBuilder : MapManager {
 
 		public GameObject emptyNode;
 
@@ -237,9 +238,9 @@ namespace Builders.MapBuilders {
 			script._23 = data._23;
 			script._25 = data._25;
 
-			script.sunRiseVect = GameManager._SunManager.sunRiseVect;
-			script.sunMidVect = GameManager._SunManager.sunMidVect;
-			script.sunSetVect = GameManager._SunManager.sunSetVect;
+			script.sunRiseVect = _SunManager.sunRiseVect;
+			script.sunMidVect = _SunManager.sunMidVect;
+			script.sunSetVect = _SunManager.sunSetVect;
 
 			script.terrainData = data;
 		}

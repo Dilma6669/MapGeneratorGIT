@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using Builders.MapBuilders;
+
 
 
 namespace Managers {
@@ -7,18 +7,10 @@ namespace Managers {
 	public class GameManager : MonoBehaviour {
 
 		public static MapManager _MapManager;
-
+		public static GridManager _GridManager;
 		public static PlayerManager _PlayerManager;
 		public static SunManager _SunManager;
 		public static Notifications _Notification;
-
-
-		public static GridManager _GridManager;
-		public static TerrainDataSimple_Builder _TerrainDataSimple_Builder;
-		public static TerrainDataFull_Builder _TerrainDataFull_Builder;
-		public static TerrainCubes_Builder _TerrainCubes_Builder;
-		public static CubeBuilder _CubeBuilder;
-		public static CubeSocial _CubeSocial;
 
 		void Awake() {
 			
@@ -27,13 +19,6 @@ namespace Managers {
 			_SunManager     = FindObjectOfType<SunManager>();
 			_Notification   = FindObjectOfType<Notifications>();
 
-
-			_GridManager    			= FindObjectOfType<GridManager> ();
-			_TerrainDataSimple_Builder 	= FindObjectOfType<TerrainDataSimple_Builder> ();
-			_TerrainDataFull_Builder 	= FindObjectOfType<TerrainDataFull_Builder> ();
-			_TerrainCubes_Builder 		= FindObjectOfType<TerrainCubes_Builder> ();
-			_CubeBuilder 				= FindObjectOfType<CubeBuilder> ();
-			_CubeSocial 				= FindObjectOfType<CubeSocial> ();
 		}
 
 

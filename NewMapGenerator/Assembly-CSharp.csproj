@@ -51,26 +51,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Builders\MapBuilders\CubeBuilder.cs" />
-     <Compile Include="Assets\Scripts\Builders\MapBuilders\CubeSocial.cs" />
-     <Compile Include="Assets\Scripts\Builders\MapBuilders\MapSettings.cs" />
-     <Compile Include="Assets\Scripts\Builders\MapBuilders\TerrainCubes_Builder.cs" />
-     <Compile Include="Assets\Scripts\Builders\MapBuilders\TerrainDataFull_Builder.cs" />
-     <Compile Include="Assets\Scripts\Builders\MapBuilders\TerrainDataSimple_Builder.cs" />
+     <Compile Include="Assets\Scripts\Builders\CubeBuilder.cs" />
+     <Compile Include="Assets\Scripts\Builders\CubeSocial.cs" />
+     <Compile Include="Assets\Scripts\Builders\Resources.cs" />
+     <Compile Include="Assets\Scripts\Builders\SelectObject.cs" />
+     <Compile Include="Assets\Scripts\Builders\TerrainCubes_Builder.cs" />
+     <Compile Include="Assets\Scripts\Builders\TerrainDataFull_Builder.cs" />
+     <Compile Include="Assets\Scripts\Builders\TerrainDataSimple_Builder.cs" />
      <Compile Include="Assets\Scripts\Data\GridBox.cs" />
      <Compile Include="Assets\Scripts\Data\GrowerObject.cs" />
+     <Compile Include="Assets\Scripts\Data\MapSettings.cs" />
      <Compile Include="Assets\Scripts\Data\TerrainData_Full.cs" />
      <Compile Include="Assets\Scripts\Data\TerrainData_Simple.cs" />
      <Compile Include="Assets\Scripts\Data\TerrainObject.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
      <Compile Include="Assets\Scripts\Managers\GridManager.cs" />
      <Compile Include="Assets\Scripts\Managers\MapManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\Notifications.cs" />
      <Compile Include="Assets\Scripts\Managers\PlayerManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\Managers\SunManager.cs" />
-     <Compile Include="Assets\Scripts\Notifications.cs" />
-     <Compile Include="Assets\Scripts\PlayerScript.cs" />
-     <Compile Include="Assets\Scripts\Resources.cs" />
-     <Compile Include="Assets\Scripts\SelectObject.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Made Games/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

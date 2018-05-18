@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Builders.MapBuilders;
-
 
 namespace Managers {
 
-	public class GridManager : MonoBehaviour {
-
-		MapSettings _mapSettings;
+	public class GridManager : MapManager {
 
 		public GameObject gridObjectPrefab; // Debugging purposes
 		public GameObject spawnPrefab; // object that runs around world space creating the locations
@@ -27,8 +23,6 @@ namespace Managers {
 
 		// Use this for initialization
 		void Start () {
-
-			_mapSettings = GameManager._MapManager._mapSettings;
 
 			GridLocToWorldLocLookup = new Hashtable ();
 			GridLocToGridObjLookup = new Hashtable ();
@@ -117,7 +111,7 @@ namespace Managers {
 
 		public void SetSunLocations() {
 
-			GameManager._SunManager.SetSunPositions (new List<Vector3> {sunRiseVect, sunMidVect, sunSetVect});
+			_SunManager.SetSunPositions (new List<Vector3> {sunRiseVect, sunMidVect, sunSetVect});
 		}
 	}
 		

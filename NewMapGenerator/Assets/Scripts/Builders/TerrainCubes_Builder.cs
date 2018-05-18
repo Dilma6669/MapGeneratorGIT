@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
+using Data;
 using Managers;
 
+namespace Builders {
 
-namespace Builders.MapBuilders {
-
-	public class TerrainCubes_Builder : MonoBehaviour {
-
-		MapSettings _mapSettings;
+	public class TerrainCubes_Builder : MapManager {
 
 		// the different surfaces to add objects blah blah
 		public Dictionary<Vector3, TerrainObject> surfacesTop = new Dictionary<Vector3, TerrainObject>();
-
-		void Start() {
-			_mapSettings = GameManager._MapManager._mapSettings;
-		}
+	
 
 		public void InstantiateCubes(List<TerrainData_Full> list) {
 
@@ -28,7 +23,7 @@ namespace Builders.MapBuilders {
 
 				if (!surfacesTop.ContainsKey(cubeLoc)) {
 
-					GameObject GodNode = GameManager._CubeBuilder.BuildMeAFuckingCube (data);
+					GameObject GodNode = _CubeBuilder.BuildMeAFuckingCube (data);
 
 					TerrainObject newScript = GodNode.GetComponent<TerrainObject> ();
 
@@ -36,7 +31,7 @@ namespace Builders.MapBuilders {
 					GodNode.transform.SetParent (this.transform);
 					int sizeOfCubes = _mapSettings.sizeOfCubes;
 					GodNode.transform.localScale = new Vector3 (sizeOfCubes, sizeOfCubes, sizeOfCubes);
-					Vector3 worldLoc = (Vector3)GameManager._GridManager.GridLocToWorldLocLookup [cubeLoc];
+					Vector3 worldLoc = (Vector3)_GridManager.GridLocToWorldLocLookup [cubeLoc];
 					GodNode.transform.position = worldLoc;
 
 					surfacesTop.Add (cubeLoc, newScript);

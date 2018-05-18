@@ -1,13 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Builders.MapBuilders;
+using Builders;
+using Data;
 
 namespace Managers {
 
-	public class MapManager : MonoBehaviour {
+	public class MapManager : GameManager {
 
 		public MapSettings _mapSettings;
+
+		public static TerrainDataSimple_Builder _TerrainDataSimple_Builder;
+		public static TerrainDataFull_Builder _TerrainDataFull_Builder;
+		public static TerrainCubes_Builder _TerrainCubes_Builder;
+		public static CubeBuilder _CubeBuilder;
+		public static CubeSocial _CubeSocial;
 
 		protected int numMapPiecesXZ;
 		protected int numMapPiecesY;
@@ -26,7 +33,15 @@ namespace Managers {
 
 
 		void Awake() {
+			
 			_mapSettings = FindObjectOfType<MapSettings> ();
+
+			_GridManager    			= FindObjectOfType<GridManager> ();
+			_TerrainDataSimple_Builder 	= FindObjectOfType<TerrainDataSimple_Builder> ();
+			_TerrainDataFull_Builder 	= FindObjectOfType<TerrainDataFull_Builder> ();
+			_TerrainCubes_Builder 		= FindObjectOfType<TerrainCubes_Builder> ();
+			_CubeBuilder 				= FindObjectOfType<CubeBuilder> ();
+			_CubeSocial 				= FindObjectOfType<CubeSocial> ();
 		}
 
 		void Start() {
@@ -35,8 +50,10 @@ namespace Managers {
 			numMapPiecesY = _mapSettings.numMapPiecesY;
 			sizeOfMapPieces = _mapSettings.sizeOfMapPieces;
 			heightOfMapPieces = _mapSettings.heightOfMapPieces;
+
 			totalXZCubes = numMapPiecesXZ * sizeOfMapPieces;
 			totalYCubes = numMapPiecesY * heightOfMapPieces;
+
 			sizeOfCubes = _mapSettings.sizeOfCubes;
 			terrainDensityPercent = _mapSettings.terrainDensityPercent;
 			waterLayerLevel = _mapSettings.waterLayerLevel;
@@ -47,7 +64,7 @@ namespace Managers {
 			int mapSize = (layerSize * numMapPiecesY);
 			int nodeStart = Random.Range(mapSize - (layerSize*2) , mapSize - layerSize) ;
 			mapLandTypeArray = new int[mapSize];
-			mapLandTypeArray [0] = 1; // 0 is nothing, 1 is Dirt, 2 is Dessert.. etc.
+			mapLandTypeArray [nodeStart] = 1; // 0 is nothing, 1 is Dirt, 2 is Dessert.. etc.
 			//mapLandTypeArray [235] = 1; // 0 is nothing, 1 is Dirt, 2 is Dessert.. etc.
 			//mapLandTypeArray [345] = 1; // 0 is nothing, 1 is Dirt, 2 is Dessert.. etc.
 			//mapLandTypeArray [265] = 1; // 0 is nothing, 1 is Dirt, 2 is Dessert.. etc.
@@ -80,23 +97,23 @@ namespace Managers {
 			int startGridLocZ = 0;
 			int startGridLocY = 0; // starting height of each new layer, 0, 10, 20. etc
 
-			GameManager._Notification.GameUpdates (1, totalXZCubes,  totalXZCubes, totalYCubes);
+			_Notification.GameUpdates (1, totalXZCubes,  totalXZCubes, totalYCubes);
 
 			// Load each Y layer of grids in a loop, not nessacary but just did it this way for some reason
 			for (int mapLayer = 1; mapLayer <= numMapPiecesY; mapLayer++) {
 
 				// build map Layer grid locations
 				MapNodeGridLocLookup.Clear ();
-				GameManager._GridManager.BuildGridLocations (startGridLocX, startGridLocZ, startGridLocY);
+				_GridManager.BuildGridLocations (startGridLocX, startGridLocZ, startGridLocY);
 
 				startGridLocX = 0;
 				startGridLocZ = 0;
 				startGridLocY = heightOfMapPieces * mapLayer;
 
-				GameManager._Notification.GameUpdates (3, "Grid Level:", mapLayer);
+				_Notification.GameUpdates (3, "Grid Level:", mapLayer);
 			}
 
-			GameManager._Notification.GameUpdates (2, "ALL GRID LAYERS LOADING:");
+			_Notification.GameUpdates (2, "ALL GRID LAYERS LOADING:");
 
 
 			//////////
@@ -109,7 +126,7 @@ namespace Managers {
 			// put nodes in center points of where map pieces will be placed in map Layer, on bottom 'floor' cube layer. e.g. 5, 5, 0. 15, 5, 10.
 			BuildMapPieceNodes ();
 
-			GameManager._Notification.GameUpdates (2, "Build Map Piece Nodes:");
+			_Notification.GameUpdates (2, "Build Map Piece Nodes:");
 
 
 			//////////
@@ -123,15 +140,10 @@ namespace Managers {
 			////////
 
 
-			// Build the Simple Data
-			BuildTerrainDataSimple ();
-
-			GameManager._Notification.GameUpdates (2, "Simple Data setup for Terrain:");
-
 			// Build the Full Data
 			BuildTerrain ();
 
-			GameManager._Notification.GameUpdates (2, "Full Data setup for Terrain:");
+			_Notification.GameUpdates (2, "Data setup for Terrain:");
 
 
 			// Place objects on terrain
@@ -175,13 +187,13 @@ namespace Managers {
 
 			// Build Simple data
 			BuildTerrainDataSimple ();
-			List<Vector3> SurfaceDataSimpleList = GameManager._TerrainDataSimple_Builder.GetSimpleSurfaceDataList ();
+			List<Vector3> SurfaceDataSimpleList = _TerrainDataSimple_Builder.GetSimpleSurfaceDataList ();
 
 			// Build Full data
-			List<TerrainData_Full> SurfaceDataFullList = GameManager._TerrainDataFull_Builder.BuildFullData (SurfaceDataSimpleList);
+			List<TerrainData_Full> SurfaceDataFullList = _TerrainDataFull_Builder.BuildFullData (SurfaceDataSimpleList);
 
 			// Build Cubes
-			GameManager._TerrainCubes_Builder.InstantiateCubes (SurfaceDataFullList);
+			_TerrainCubes_Builder.InstantiateCubes (SurfaceDataFullList);
 		}
 
 
@@ -215,7 +227,7 @@ namespace Managers {
 					finishZ = (int)gridLoc.z + halfMapSize;
 					finishY = (int)gridLoc.y + halfMapSize;
 
-					GameManager._TerrainDataSimple_Builder.BuildSimpleData (landType, gridLoc, startX, startZ, startY, finishX, finishZ, finishY);
+					_TerrainDataSimple_Builder.BuildSimpleData (landType, gridLoc, startX, startZ, startY, finishX, finishZ, finishY);
 				}
 			}
 		}

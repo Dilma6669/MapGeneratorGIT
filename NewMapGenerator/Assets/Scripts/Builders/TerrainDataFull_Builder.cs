@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using System.Reflection;
+using Data;
 using Managers;
 
-namespace Builders.MapBuilders {
+namespace Builders {
 
-	public class TerrainDataFull_Builder : MonoBehaviour {
+	public class TerrainDataFull_Builder : MapManager {
 
 		private List<TerrainData_Full> SurfaceDataFullList = new List<TerrainData_Full> ();
 
@@ -37,12 +38,12 @@ namespace Builders.MapBuilders {
 					fullData.surfaceTop = true;
 
 					RemoveDataFromWorld (gridLocToPlace);
-					GameManager._GridManager.GridLocToGridObjLookup.Add (gridLocToPlace, fullData);
+					_GridManager.GridLocToGridObjLookup.Add (gridLocToPlace, fullData);
 					SurfaceDataFullList.Add (fullData);
 				}
 
-			GameManager._CubeSocial.GetCubeNeighbours (SurfaceDataFullList);
-			GameManager._CubeSocial.GetCubeConnections (SurfaceDataFullList);
+			_CubeSocial.GetCubeNeighbours (SurfaceDataFullList);
+			_CubeSocial.GetCubeConnections (SurfaceDataFullList);
 
 
 				CalculateCubeSlopes ();
@@ -380,9 +381,9 @@ namespace Builders.MapBuilders {
 		// A general funtion to remove data and its connections
 		public void RemoveDataFromWorld(Vector3 dataLoc) {
 
-			Destroy (GameManager._GridManager.GridLocToGridObjLookup[dataLoc] as GameObject);
+			Destroy (_GridManager.GridLocToGridObjLookup[dataLoc] as GameObject);
 
-			GameManager._GridManager.GridLocToGridObjLookup.Remove (dataLoc);
+			_GridManager.GridLocToGridObjLookup.Remove (dataLoc);
 		}
 		//////////////////////////
 	}

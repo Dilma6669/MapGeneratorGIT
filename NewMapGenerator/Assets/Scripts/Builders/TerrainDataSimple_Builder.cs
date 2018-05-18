@@ -1,23 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Data;
 using Managers;
 
-namespace Builders.MapBuilders {
+namespace Builders {
 
-	public class TerrainDataSimple_Builder : MonoBehaviour {
+	public class TerrainDataSimple_Builder : MapManager {
 
-		MapSettings _mapSettings;
 
 		private List<Vector3> SurfaceDataSimpleList = new List<Vector3>();
 
 		// stores the objects to be built
 		private List<List<int[]>> hillPreDataList = new List<List<int[]>>();
-
-
-		void Start() {
-			_mapSettings = GameManager._MapManager._mapSettings;
-		}
 
 
 		public List<Vector3> GetSimpleSurfaceDataList() {
@@ -44,7 +39,7 @@ namespace Builders.MapBuilders {
 
 			int peaksCount = Random.Range (1, 2);//Random.Range (0, halfSizeMap + 1);
 
-			GameManager._Notification.GameUpdates (4, "Number hills/mountains in node:", peaksCount );
+			_Notification.GameUpdates (4, "Number hills/mountains in node:", peaksCount );
 
 			Debug.Log ("startY: " + startY + " FinishY: " + finishY);
 
@@ -123,7 +118,6 @@ namespace Builders.MapBuilders {
 
 				// spread bottom layer across whole map
 				if (y == posY) {
-					int totalXZCubes = _mapSettings.totalXZCubes;
 					startX = -totalXZCubes;
 					startZ = -totalXZCubes;
 					finishX = totalXZCubes;
@@ -197,7 +191,7 @@ namespace Builders.MapBuilders {
 			int[] firstEntryData = obj [0];
 			Vector3 startingPos =  new Vector3 (firstEntryData [0], firstEntryData [1], firstEntryData [2]);
 
-			if (GameManager._GridManager.GridLocToWorldLocLookup [startingPos] != null) {
+			if (_GridManager.GridLocToWorldLocLookup [startingPos] != null) {
 
 				int[] cubeDataFirst = new int[4];
 				cubeDataFirst [0] = (int)startingPos.x;		//gridLocToPlace
@@ -212,7 +206,7 @@ namespace Builders.MapBuilders {
 					int[] newEntryData = obj [j];
 
 					Vector3 gridLocToPlace = new Vector3 (startingPos.x + newEntryData [0], startingPos.y + newEntryData [1], startingPos.z + newEntryData [2]);
-					if (GameManager._GridManager.GridLocToWorldLocLookup [gridLocToPlace] != null) {
+					if (_GridManager.GridLocToWorldLocLookup [gridLocToPlace] != null) {
 
 						int[] cubeDataNext = new int[5];
 						cubeDataNext [0] = (int)gridLocToPlace.x;	//gridLocToPlace
@@ -234,7 +228,7 @@ namespace Builders.MapBuilders {
 			Vector3 gridLocToPlace = new Vector3(cubeData [0], cubeData [1], cubeData [2]);
 
 			// if any cubes already exist at this location, return
-			if (GameManager._GridManager.GridLocToGridObjLookup [gridLocToPlace] != null) {
+			if (_GridManager.GridLocToGridObjLookup [gridLocToPlace] != null) {
 				return;
 			}
 
@@ -248,7 +242,7 @@ namespace Builders.MapBuilders {
 
 				newData.surface = cubeData [3];
 
-				GameManager._GridManager.GridLocToGridObjLookup.Add (gridLocToPlace, newData);
+				_GridManager.GridLocToGridObjLookup.Add (gridLocToPlace, newData);
 			}
 		}
 
@@ -325,8 +319,8 @@ namespace Builders.MapBuilders {
 							// dont remove bottom layer cubes
 							if( y != 0) {
 							Vector3 dataToRemoveLoc = new Vector3 (x, z, y);
-								if (GameManager._GridManager.GridLocToGridObjLookup [dataToRemoveLoc] != null) {
-									TerrainData_Simple dataSimple = (TerrainData_Simple)GameManager._GridManager.GridLocToGridObjLookup [dataToRemoveLoc];
+								if (_GridManager.GridLocToGridObjLookup [dataToRemoveLoc] != null) {
+									TerrainData_Simple dataSimple = (TerrainData_Simple)_GridManager.GridLocToGridObjLookup [dataToRemoveLoc];
 
 									if (z == startZ || z == finishZ || x == startX || x == finishX || y == startY || y == finishY) {
 										dataSimple.surface = 1;
@@ -353,7 +347,7 @@ namespace Builders.MapBuilders {
 		// Put all relevent simple surface data into surface list to be made in ful scripts
 		public void CreateSurfaceList() {
 
-			foreach (TerrainData_Simple dataSimple in GameManager._GridManager.GridLocToGridObjLookup.Values) {
+			foreach (TerrainData_Simple dataSimple in _GridManager.GridLocToGridObjLookup.Values) {
 				if (dataSimple.surface == 1) {
 					SurfaceDataSimpleList.Add (new Vector3 (dataSimple.gridLocX, dataSimple.gridLocZ, dataSimple.gridLocY));
 				}
@@ -367,7 +361,7 @@ namespace Builders.MapBuilders {
 		// A general funtion to remove data and its connections
 		public void RemoveDataFromWorld(Vector3 dataLoc) {
 
-			GameManager._GridManager.GridLocToGridObjLookup.Remove (dataLoc);
+			_GridManager.GridLocToGridObjLookup.Remove (dataLoc);
 		}
 		//////////////////////////
 		/// 

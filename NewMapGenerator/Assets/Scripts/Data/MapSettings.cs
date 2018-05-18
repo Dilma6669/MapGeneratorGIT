@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Builders.MapBuilders {
+namespace Data {
 	
 	public class MapSettings : MonoBehaviour {
 
@@ -14,6 +14,5 @@ namespace Builders.MapBuilders {
 		public int terrainDensityPercent;
 		public int waterLayerLevel;
 		public int hillMountainRatio;
-	
 	}
 }

@@ -1,17 +1,18 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\MapManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Builders\TerrainDataSimple_Builder.cs">
     <Files>
-      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="32" Column="30" />
-      <File FileName="Assets\Scripts\Managers\MapManager.cs" Line="218" Column="1" />
-      <File FileName="Assets\Scripts\Builders\MapBuilders\CubeBuilder.cs" Line="240" Column="1" />
-      <File FileName="Assets\Scripts\Builders\MapBuilders\CubeSocial.cs" Line="17" Column="3" />
-      <File FileName="Assets\Scripts\Managers\GridManager.cs" Line="29" Column="13" />
-      <File FileName="Assets\Scripts\Builders\MapBuilders\MapSettings.cs" Line="12" Column="26" />
-      <File FileName="Assets\Scripts\Builders\MapBuilders\TerrainCubes_Builder.cs" Line="18" Column="55" />
-      <File FileName="Assets\Scripts\Builders\MapBuilders\TerrainDataFull_Builder.cs" Line="385" Column="16" />
-      <File FileName="Assets\Scripts\Builders\MapBuilders\TerrainDataSimple_Builder.cs" Line="267" Column="48" />
-      <File FileName="Assets\Scripts\Managers\PlayerManager.cs" Line="22" Column="2" />
+      <File FileName="Assets\Scripts\Builders\CubeSocial.cs" Line="4" Column="12" />
+      <File FileName="Assets\Scripts\Builders\CubeBuilder.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="5" Column="1" />
+      <File FileName="Assets\Scripts\Managers\SunManager.cs" Line="247" Column="2" />
+      <File FileName="Assets\Scripts\Builders\SelectObject.cs" Line="4" Column="12" />
+      <File FileName="Assets\Scripts\Builders\TerrainCubes_Builder.cs" Line="5" Column="12" />
+      <File FileName="Assets\Scripts\Builders\TerrainDataFull_Builder.cs" Line="6" Column="12" />
+      <File FileName="Assets\Scripts\Builders\TerrainDataSimple_Builder.cs" Line="120" Column="21" />
+      <File FileName="Assets\Scripts\Data\MapSettings.cs" Line="11" Column="26" />
+      <File FileName="Assets\Scripts\Managers\MapManager.cs" Line="67" Column="31" />
+      <File FileName="Assets\Scripts\Managers\GridManager.cs" Line="73" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
