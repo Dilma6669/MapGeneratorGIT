@@ -1,18 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Builders\TerrainDataSimple_Builder.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\resources\prefabs\TreeGrower.cs">
     <Files>
-      <File FileName="Assets\Scripts\Builders\CubeSocial.cs" Line="4" Column="12" />
-      <File FileName="Assets\Scripts\Builders\CubeBuilder.cs" Line="5" Column="1" />
-      <File FileName="Assets\Scripts\Managers\GameManager.cs" Line="5" Column="1" />
-      <File FileName="Assets\Scripts\Managers\SunManager.cs" Line="247" Column="2" />
-      <File FileName="Assets\Scripts\Builders\SelectObject.cs" Line="4" Column="12" />
-      <File FileName="Assets\Scripts\Builders\TerrainCubes_Builder.cs" Line="5" Column="12" />
-      <File FileName="Assets\Scripts\Builders\TerrainDataFull_Builder.cs" Line="6" Column="12" />
-      <File FileName="Assets\Scripts\Builders\TerrainDataSimple_Builder.cs" Line="120" Column="21" />
-      <File FileName="Assets\Scripts\Data\MapSettings.cs" Line="11" Column="26" />
-      <File FileName="Assets\Scripts\Managers\MapManager.cs" Line="67" Column="31" />
-      <File FileName="Assets\Scripts\Managers\GridManager.cs" Line="73" Column="1" />
+      <File FileName="Assets\resources\prefabs\Branch.cs" Line="20" Column="1" />
+      <File FileName="Assets\resources\prefabs\TreeGrower.cs" Line="48" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
