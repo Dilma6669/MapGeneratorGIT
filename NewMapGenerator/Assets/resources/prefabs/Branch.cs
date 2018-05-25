@@ -44,7 +44,7 @@ public class Branch : MonoBehaviour {
 
 		growYouGoodThing = true;
 
-		StartCoroutine(GrowBranches(0.5f));
+		StartCoroutine(GrowBranches(1));
 	}
 	
 	// Update is called once per frame
@@ -54,14 +54,14 @@ public class Branch : MonoBehaviour {
 
 			Vector3 newVect = transform.localScale;
 
-			if (newVect.x <= maxGrowth) {
-
-				newVect = new Vector3 (newVect.x += growthRate, newVect.y, newVect.z += growthRate);
-			}
+//			if (newVect.x <= maxGrowth) {
+//
+//				newVect = new Vector3 (newVect.x += growthRate, newVect.y, newVect.z += growthRate);
+//			}
 			
 			if (newVect.y <= maxGrowth) {
 
-				newVect = new Vector3 (newVect.x, newVect.y += growthRate, newVect.z);
+				newVect = new Vector3 (newVect.x += growthRate, newVect.y += growthRate, newVect.z += growthRate);
 
 			} else {
 				growYouGoodThing = false;
@@ -76,17 +76,19 @@ public class Branch : MonoBehaviour {
 
 		if (globalBranchCount <= maxGlobalBranches) {
 
+			int randomY = Random.Range (0, 360);
+
 			for (int i = 0; i < maxLocalBranches; i++) {
 
 				yield return new WaitForSeconds (time);
 
-				spawn.transform.localRotation = Quaternion.Euler (Random.Range (-100, 100), Random.Range (-360, 360), Random.Range (-100, 100));
-
+				randomY += 222;
+				spawn.transform.localRotation = Quaternion.Euler (-45, randomY, 0);
 
 				GameObject prefab = (GameObject)Resources.Load ("prefabs/BranchPrefab", typeof(GameObject));
 				GameObject branch = Instantiate (prefab, spawn.transform);
 
-				branch.transform.SetParent (children.transform);
+				branch.transform.SetParent (transform);
 
 				branch.GetComponent<Branch> ().BuildBranch (growthRate, maxGrowth, maxGlobalBranches, globalBranchCount, maxLocalBranches);
 
@@ -94,11 +96,11 @@ public class Branch : MonoBehaviour {
 
 		} else {
 
-			GameObject prefab = (GameObject)Resources.Load ("prefabs/LeavesPrefab", typeof(GameObject));
-			GameObject leaves = Instantiate (prefab, spawn.transform);
-			leaves.transform.SetParent (children.transform);
-			float randomSize = Random.Range (30, 60);
-			leaves.transform.localScale = new Vector3(randomSize,randomSize,randomSize);
+//			GameObject prefab = (GameObject)Resources.Load ("prefabs/LeavesPrefab", typeof(GameObject));
+//			GameObject leaves = Instantiate (prefab, spawn.transform);
+//			leaves.transform.SetParent (children.transform);
+//			float randomSize = Random.Range (30, 60);
+//			leaves.transform.localScale = new Vector3(randomSize,randomSize,randomSize);
 
 		}
 	}
